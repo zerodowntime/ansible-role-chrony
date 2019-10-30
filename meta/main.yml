@@ -4,7 +4,7 @@
 dependencies: []
 
 galaxy_info:
-  author: ZeroDowntime Team <ansible@zerodowntime.pl>
+  author: ZeroDowntime Team <support@zdt.io>
   company: ZeroDowntime Sp. z o.o.
   role_name: chrony
   description: Role to install and configure chrony - Network Time Protocol client & server
