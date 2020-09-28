@@ -36,3 +36,23 @@
   tags:
     - chrony
     - configure
+
+- name: Configure unit to prevent it from being started in container environments
+  vars:
+    chrony_unit_template:
+      - "templates/unit/chrony.service.{{ ansible_distribution|lower }}{{ ansible_distribution_major_version|int }}.j2"
+      - "templates/unit/chrony.service.{{ ansible_distribution|lower }}.j2"
+  template:
+    src: "{{ lookup('first_found', chrony_unit_template) }}"
+    dest: "{{ chrony__unit_file_path }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+    seuser: 'system_u'
+    serole: 'object_r'
+    setype: 'etc_t'
+  notify:
+    - restart chrony
+  tags:
+    - chrony
+    - configure

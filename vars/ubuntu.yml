@@ -18,3 +18,8 @@ chrony__service_name: chrony
 #?   description: Path to chrony configuration files.
 #?   required: True
 chrony__config_path: /etc/chrony
+
+#? chrony__unit_file_path:
+#?   type: string
+#?   description: Path to unit file
+chrony__unit_file_path: /lib/systemd/system/chrony.service
